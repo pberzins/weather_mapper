@@ -120,7 +120,7 @@ def station_id_lookup(df):
     return station_dict
 
 
-def make_jpg_files(idi, start=2000, end=2010):
+def make_jpg_files(idi, start=2002, end=2010):
     path_to_folder = '../pics/'
 
     for year in range(start, end):
@@ -144,7 +144,7 @@ def make_jpg_files(idi, start=2000, end=2010):
             print(
                 f'Fetched Weather Data for {query_day} in {time.time()-start:.2f} seconds!')
 
-        return 'You Finished!'
+    return 'You Finished!'
 
 
 def make_plot_lists(idi, df):
