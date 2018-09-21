@@ -120,7 +120,7 @@ def station_id_lookup(df):
     return station_dict
 
 
-def make_jpg_files(idi, start=2002, end=2010):
+def make_jpg_files(idi, start=2009, end=2018):
     path_to_folder = '../pics/'
 
     for year in range(start, end):
