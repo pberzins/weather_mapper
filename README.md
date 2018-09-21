@@ -1,6 +1,6 @@
-# Weather Mapper 
-This tool can be used with point data where at a location you have temperature and precipitation data and latitudes and longitudes.
-pretty straight forward using Matplotlib, and Imageio to make a gif.
+# Weather Mapper GIF tool
+This tool maps weather (temp, and precip) across the united states from years 2000 to 2017. I already had a postgres server running with the weather data and thought why not?
+
 
 p.s. start in the src folder with the file humble_beginnings.py
 
