@@ -137,10 +137,10 @@ def make_jpg_files(idi, start=2009, end=2018):
             query_day = str(day.date())
             df = get_weather_for_one_day(table_name, query_day)
 
-            lat, long, var, precip = make_plot_lists(idi, df)
+            lat, longi, var, precip = make_plot_lists(idi, df)
 
             path = path_to_folder + query_day + '.jpg'
-            plot_tool(lat, long, var, precip, path, query_day)
+            plot_tool(lat, longi, var, precip, path, query_day)
             print(
                 f'Fetched Weather Data for {query_day} in {time.time()-start:.2f} seconds!')
 
@@ -169,7 +169,7 @@ def make_plot_lists(idi, df):
 #cmap, norm = mpl.colors.from_levels_and_colors([0, 2, 5, 6], ['red', 'green', 'blue'])
 
 
-def plot_tool(lat, long, var, precip, path, day):
+def plot_tool(lat, longi, var, precip, path, day):
     fig, ax = plt.subplots(figsize=(15, 8))
     cmap = plt.get_cmap('magma', 21)
     norm = mpl.colors.Normalize(vmin=-457, vmax=455)
@@ -177,8 +177,8 @@ def plot_tool(lat, long, var, precip, path, day):
     sm.set_array([])
     fig.colorbar(sm, ticks=np.linspace(-457, 455, 21)),
 
-    ax.scatter(long, lat, alpha=0.3, c=var, cmap=cmap, s=50, norm=norm)
-    ax.scatter(long, lat, s=precip, alpha=.05, color='skyblue')
+    ax.scatter(longi, lat, alpha=0.3, c=var, cmap=cmap, s=50, norm=norm)
+    ax.scatter(longi, lat, s=precip, alpha=.05, color='skyblue')
     ax.set_ylim(20, 60)
     ax.set_xlim(-140, -50)
     ax.set_title(day, fontsize=20)
@@ -189,5 +189,6 @@ def plot_tool(lat, long, var, precip, path, day):
 
 
 if __name__ == '__main__':
-    meta_data, idi = load_metadata()
-    make_jpg_files(idi)
+    # meta_data, idi = load_metadata()
+    # make_jpg_files(idi)
+    pass
