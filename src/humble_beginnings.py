@@ -144,7 +144,7 @@ def make_jpg_files(idi, start=2009, end=2018):
             print(
                 f'Fetched Weather Data for {query_day} in {time.time()-start:.2f} seconds!')
 
-    return 'You Finished!'
+    return None
 
 
 def make_plot_lists(idi, df):
@@ -179,8 +179,8 @@ def plot_tool(lat, longi, var, precip, path, day):
 
     ax.scatter(longi, lat, alpha=0.3, c=var, cmap=cmap, s=50, norm=norm)
     ax.scatter(longi, lat, s=precip, alpha=.05, color='skyblue')
-    ax.set_ylim(20, 60)
-    ax.set_xlim(-140, -50)
+    # ax.set_ylim(20, 60)
+    # ax.set_xlim(-140, -50)
     ax.set_title(day, fontsize=20)
 
     fig.savefig(path)
@@ -189,6 +189,6 @@ def plot_tool(lat, longi, var, precip, path, day):
 
 
 if __name__ == '__main__':
-    # meta_data, idi = load_metadata()
-    # make_jpg_files(idi)
+    xmeta_data, idi = load_metadata()
+    make_jpg_files(idi)
     pass
