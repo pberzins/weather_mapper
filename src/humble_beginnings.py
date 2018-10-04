@@ -17,6 +17,7 @@ import csv
 from collections import defaultdict
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+import imageio
 
 
 def get_meta_data(name='weather', loc='localhost'):
@@ -184,6 +185,18 @@ def plot_tool(lat, longi, var, precip, path, day):
     ax.set_title(day, fontsize=20)
 
     fig.savefig(path)
+
+    return None
+
+
+def make_gif(path):
+    files = sorted(os.listdir(path))
+    images = []
+    for file in files[1:]:
+        start = time.time()
+        images.append(imageio.imread(path+file))
+        print(f'Appended {file} in {time.time()-start} seconds!')
+    imageio.mimsave('final.gif', images, duration=.1)
 
     return None
 
